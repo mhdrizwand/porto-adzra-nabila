@@ -7,44 +7,65 @@ import {
   X,
   ChevronLeft,
   ChevronRight,
-  Camera,
 } from "lucide-react";
 
-const experiences = [
+type MediaItem = {
+  type: "image" | "video";
+  src: string;
+  alt?: string;
+};
+
+type Experience = {
+  title: string;
+  place: string;
+  period: string;
+  description: string;
+  photos: MediaItem[];
+};
+
+const experiences: Experience[] = [
   {
-    title: "Custumer Service, Admin & Conten Creator",
+    title: "Customer Service, Admin & Content Creator",
     place: "URLv Women Store",
     period: "9 September 2024 - Sekarang",
     description:
       "Melayani pelanggan secara langsung dengan sikap ramah dan profesional, menangani pertanyaan serta keluhan dengan memberikan solusi yang tepat dan cepat. Bertanggung jawab dalam mengelola transaksi serta administrasi penjualan secara tertib dan akurat. Terbiasa bekerja dengan target penjualan, menjaga loyalitas pelanggan, serta mampu berkolaborasi secara efektif dalam tim untuk memastikan pelayanan berjalan optimal.",
     photos: [
-      { src: "UV 1.png", alt: "PPL Photo 1" },
-      { src: "UV 2.png", alt: "PPL Photo 2" },
-      { src: "UV 3.png", alt: "PPL Photo 3" },
-      { src: "UV 4.png", alt: "PPL Photo 4" },
-      { src: "UV 5.png", alt: "PPL Photo 5" },
-      { src: "UV 6.png", alt: "PPL Photo 6" },
+      { type: "image", src: "UV 1.png", alt: "URLv Photo 1" },
+      { type: "image", src: "UV 2.png", alt: "URLv Photo 2" },
+      { type: "image", src: "UV 3.png", alt: "URLv Photo 3" },
+      { type: "image", src: "UV 4.png", alt: "URLv Photo 4" },
+      { type: "image", src: "UV 5.png", alt: "URLv Photo 5" },
+      { type: "image", src: "UV 6.png", alt: "URLv Photo 6" },
+      { type: "video", src: "video 4.mp4" },
+      { type: "video", src: "video 5.mp4" },
+      { type: "video", src: "video 6.mp4" },
+      { type: "video", src: "video 3.mp4" },
+      { type: "video", src: "video 2.mp4" },
+      { type: "video", src: "video 1.mp4" },
     ],
   },
   {
     title: "Guru PAUD",
     place: "PAUD UMMAH",
-    period: "11 februari 2024 - 20 november 2024",
+    period: "11 Februari 2024 - 20 November 2024",
     description:
       "Mengelola administrasi dan dokumentasi kegiatan pembelajaran secara tertib dan sistematis, serta menjalin komunikasi aktif dengan orang tua terkait perkembangan peserta didik. Melalui peran ini, saya melatih kesabaran, ketelitian, dan kemampuan komunikasi interpersonal dalam menghadapi berbagai karakter. Selain itu, saya turut berpartisipasi dalam perencanaan dan evaluasi program untuk memastikan kegiatan pembelajaran berjalan efektif dan terarah.",
     photos: [
-      { src: "PAUD 1.png", alt: "Photo 1" },
-      { src: "PAUD 2.png", alt: "Photo 1" },
-      { src: "PAUD 3.png", alt: "Photo 1" },
+      { type: "image", src: "PAUD 1.png", alt: "PAUD Photo 1" },
+      { type: "image", src: "PAUD 2.png", alt: "PAUD Photo 2" },
+      { type: "image", src: "PAUD 3.png", alt: "PAUD Photo 3" },
     ],
   },
   {
-    title: "Customer Service ",
+    title: "Customer Service",
     place: "City Phone",
     period: "3 Maret 2022 - 18 Desember 2022",
     description:
-      "Melayani pelanggan dalam pembelian handphone, aksesoris, dan produk pendukung lainnya dengan memberikan penjelasan terkait spesifikasi, perbandingan tipe, serta rekomendasi yang sesuai dengan kebutuhan pelanggan. Menangani komplain produk dan membantu proses klaim garansi secara responsif dan solutif. Bertanggung jawab mengelola transaksi tunai maupun non-tunai serta melakukan pencatatan administrasi harian secara akurat. Terbiasa bekerja dengan target penjualan, menjaga kepuasan dan loyalitas pelanggan, serta berkoordinasi dengan tim untuk memastikan pelayanan berjalan cepat dan efektif.",
-    photos: [{ src: "", alt: " Photo 1" }],
+      "Melayani pelanggan dalam pembelian handphone, aksesoris, dan produk pendukung lainnya dengan memberikan penjelasan terkait spesifikasi, perbandingan tipe, serta rekomendasi yang sesuai dengan kebutuhan pelanggan. Menangani komplain produk dan membantu proses klaim garansi secara responsif dan solutif. Bertanggung jawab mengelola transaksi tunai maupun non-tunai serta melakukan pencatatan administrasi harian secara akurat.",
+    photos: [
+      { type: "image", src: "CityPhone 1.png", alt: "City Phone Photo 1" },
+    ],
   },
   {
     title: "Program Kampus Mengajar Angkatan 5",
@@ -53,69 +74,134 @@ const experiences = [
     description:
       "Saya mengikuti Program Kampus Mengajar Angkatan 5 Tahun 2023 dengan kegiatan pembekalan dan penugasan di sekolah, meliputi observasi, pelaksanaan AKM, pembelajaran literasi dan numerasi, adaptasi teknologi, serta administrasi sekolah. Program ini memberikan pengalaman langsung dalam mendukung proses pembelajaran dan meningkatkan kompetensi pedagogis serta manajerial saya di bidang pendidikan.",
     photos: [
-      { src: "KM5 1.png", alt: " Photo 1" },
-      { src: "KM5 2.png", alt: " Photo 1" },
-      { src: "KM5 3.png", alt: " Photo 1" },
-      { src: "KM5 4.png", alt: " Photo 1" },
+      { type: "image", src: "KM5 1.png", alt: "KM5 Photo 1" },
+      { type: "image", src: "KM5 2.png", alt: "KM5 Photo 2" },
+      { type: "image", src: "KM5 3.png", alt: "KM5 Photo 3" },
+      { type: "image", src: "KM5 4.png", alt: "KM5 Photo 4" },
     ],
   },
   {
-    title: "Pelatihan Master Of Ceremony",
+    title: "Pelatihan Master of Ceremony",
     place: "Dinas Pendidikan Dayah Aceh",
     period: "Februari 2022",
     description:
-      "Dalam kegiatan pelatihan Master of Ceremony (MC), saya mempelajari teknik public speaking, pengolahan vokal, penguasaan panggung, serta penyusunan susunan acara secara profesional. Selain itu, dalam pelatihan penulisan karya tulis ilmiah, saya mempelajari sistematika penulisan ilmiah, teknik penyusunan paragraf akademik, penggunaan bahasa sesuai kaidah, serta pengelolaan dan sitasi referensi secara tepat, sehingga meningkatkan kemampuan komunikasi dan literasi akademik saya.",
+      "Dalam kegiatan pelatihan Master of Ceremony (MC), saya mempelajari teknik public speaking, pengolahan vokal, penguasaan panggung, serta penyusunan susunan acara secara profesional. Selain itu, dalam pelatihan penulisan karya tulis ilmiah, saya mempelajari sistematika penulisan ilmiah, teknik penyusunan paragraf akademik, penggunaan bahasa sesuai kaidah, serta pengelolaan dan sitasi referensi secara tepat.",
     photos: [
-      { src: "KM 2.png", alt: " Photo 1" },
-      { src: "KM 3.png", alt: " Photo 1" },
+      { type: "image", src: "KM 2.png", alt: "MC Photo 1" },
+      { type: "image", src: "KM 3.png", alt: "MC Photo 2" },
     ],
   },
 ];
 
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
+function normSrc(src: string) {
+  return src.startsWith("/") ? src : `/${src}`;
+}
+
+/**
+ * ImageCover — gambar mengisi container dengan object-cover.
+ * Container harus punya ukuran tetap + overflow-hidden.
+ */
+function ImageCover({ item }: { item: MediaItem }) {
+  return (
+    <img
+      src={normSrc(item.src)}
+      alt={item.alt ?? ""}
+      className="w-full h-full object-cover"
+    />
+  );
+}
+
+/**
+ * VideoCover — video dipotong mengisi container (thumbnail & grid modal).
+ * Container harus punya ukuran tetap + overflow-hidden.
+ */
+function VideoCover({ item }: { item: MediaItem }) {
+  return (
+    <video
+      src={normSrc(item.src)}
+      className="w-full h-full object-cover"
+      muted
+      autoPlay={false}
+      playsInline
+    />
+  );
+}
+
+/**
+ * VideoFull — video tampil PENUH mengikuti rasio aslinya.
+ * JANGAN bungkus dengan overflow-hidden atau container bertinggi fixed.
+ * Container cukup pakai w-full tanpa h-* apapun.
+ */
+function VideoFull({
+  item,
+  controls = false,
+}: {
+  item: MediaItem;
+  controls?: boolean;
+}) {
+  return (
+    <video
+      src={normSrc(item.src)}
+      // w-full + height auto = mengikuti rasio asli video, tidak pernah terpotong
+      className="w-full block"
+      style={{ height: "auto", maxHeight: "none" }}
+      muted
+      autoPlay={false}
+      controls={controls}
+      playsInline
+    />
+  );
+}
+
+// ─── Photo Collage (card preview) ────────────────────────────────────────────
 function PhotoCollage({
   photos,
   onSeeMore,
 }: {
-  photos: { src: string; alt: string }[];
+  photos: MediaItem[];
   onSeeMore: () => void;
 }) {
-  const visiblePhotos = photos.slice(0, 4);
-  const remainingCount = photos.length - 3;
+  const MAX_VISIBLE = 4;
+  const visiblePhotos = photos.slice(0, MAX_VISIBLE);
+  const remainingCount = photos.length - (MAX_VISIBLE - 1);
 
   return (
     <div className="grid grid-cols-2 gap-2 mt-4">
-      {visiblePhotos.map((photo, idx) => (
-        <div
-          key={idx}
-          className={`relative rounded-xl overflow-hidden bg-secondary ${
-            idx === 0 ? "col-span-2 h-32 md:h-40" : "h-24 md:h-28"
-          }`}
-        >
-          {photo.src ? (
-            <img
-              src={photo.src}
-              alt={photo.alt}
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center">
-              <Camera size={20} className="text-primary/30" />
-            </div>
-          )}
+      {visiblePhotos.map((photo, idx) => {
+        const isFirst = idx === 0;
+        const isVideo = photo.type === "video";
 
-          {/* "See More" overlay on the last visible photo */}
-          {idx === visiblePhotos.length - 1 && remainingCount > 0 && (
-            <button
-              onClick={onSeeMore}
-              className="absolute inset-0 bg-primary/50 flex items-center justify-center cursor-pointer hover:bg-primary/60 transition-colors"
-            >
-              <span className="text-primary-foreground font-sans font-semibold text-sm">
-                +{remainingCount} more
-              </span>
-            </button>
-          )}
-        </div>
-      ))}
+        return (
+          <div
+            key={idx}
+            className={`relative rounded-xl bg-secondary ${isFirst ? "col-span-2" : ""} ${
+              // Video: NO overflow-hidden & NO fixed height → expands naturally
+              // Image: overflow-hidden + fixed height → rapi
+              isVideo
+                ? ""
+                : isFirst
+                  ? "h-32 md:h-40 overflow-hidden"
+                  : "h-24 md:h-28 overflow-hidden"
+            }`}
+          >
+            {isVideo ? <VideoFull item={photo} /> : <ImageCover item={photo} />}
+
+            {/* "+N more" overlay */}
+            {idx === MAX_VISIBLE - 1 && remainingCount > 0 && (
+              <button
+                onClick={onSeeMore}
+                className="absolute inset-0 bg-primary/50 flex items-center justify-center hover:bg-primary/60 transition-colors rounded-xl"
+              >
+                <span className="text-primary-foreground font-sans font-semibold text-sm">
+                  +{remainingCount} more
+                </span>
+              </button>
+            )}
+          </div>
+        );
+      })}
 
       <div className="col-span-2">
         <button
@@ -130,6 +216,7 @@ function PhotoCollage({
   );
 }
 
+// ─── Gallery Modal ────────────────────────────────────────────────────────────
 function GalleryModal({
   open,
   onClose,
@@ -138,43 +225,50 @@ function GalleryModal({
 }: {
   open: boolean;
   onClose: () => void;
-  photos: { src: string; alt: string }[];
+  photos: MediaItem[];
   title: string;
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [view, setView] = useState<"grid" | "single">("grid");
 
-  const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev === 0 ? photos.length - 1 : prev - 1));
-  }, [photos.length]);
+  const handlePrev = useCallback(
+    () => setCurrentIndex((p) => (p === 0 ? photos.length - 1 : p - 1)),
+    [photos.length],
+  );
+  const handleNext = useCallback(
+    () => setCurrentIndex((p) => (p === photos.length - 1 ? 0 : p + 1)),
+    [photos.length],
+  );
 
-  const handleNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev === photos.length - 1 ? 0 : prev + 1));
-  }, [photos.length]);
+  useEffect(() => {
+    if (open) {
+      setCurrentIndex(0);
+      setView("grid");
+    }
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       if (e.key === "ArrowLeft") handlePrev();
       if (e.key === "ArrowRight") handleNext();
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose, handlePrev, handleNext]);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = open ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
   }, [open]);
 
   if (!open) return null;
+
+  const current = photos[currentIndex];
+  const isVideo = current?.type === "video";
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">
@@ -184,16 +278,16 @@ function GalleryModal({
         onClick={onClose}
       />
 
-      {/* Modal content */}
-      <div className="relative z-10 w-[95vw] max-w-4xl max-h-[90vh] glass-card rounded-3xl p-6 md:p-8 overflow-hidden flex flex-col animate-fade-in-up">
+      {/* Modal — overflow-y-auto agar konten panjang bisa discroll */}
+      <div className="relative z-10 w-[95vw] max-w-4xl max-h-[90vh] glass-card rounded-3xl p-6 md:p-8 flex flex-col animate-fade-in-up overflow-y-auto">
         {/* Header */}
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl md:text-2xl font-bold text-foreground font-serif">
+        <div className="flex items-center justify-between mb-6 flex-shrink-0">
+          <h3 className="text-xl md:text-2xl font-bold text-foreground font-serif truncate pr-4">
             {title}
           </h3>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-shrink-0">
             <button
-              onClick={() => setView(view === "grid" ? "single" : "grid")}
+              onClick={() => setView((v) => (v === "grid" ? "single" : "grid"))}
               className="px-3 py-1.5 rounded-lg glass-card-strong text-sm text-primary font-sans font-medium hover:scale-105 transition-transform"
             >
               {view === "grid" ? "Slideshow" : "Grid"}
@@ -209,8 +303,9 @@ function GalleryModal({
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1">
           {view === "grid" ? (
+            // ── Grid: aspect-square cells, video & gambar di-crop ──────────
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {photos.map((photo, idx) => (
                 <button
@@ -221,81 +316,93 @@ function GalleryModal({
                   }}
                   className="relative aspect-square rounded-2xl overflow-hidden bg-secondary group cursor-pointer"
                 >
-                  {photo.src ? (
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+                  {photo.type === "video" ? (
+                    <VideoCover item={photo} />
                   ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center gap-2">
-                      <Camera size={28} className="text-primary/30" />
-                      <span className="text-xs text-muted-foreground font-sans">
-                        {photo.alt}
-                      </span>
-                    </div>
+                    <ImageCover item={photo} />
                   )}
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors" />
                 </button>
               ))}
             </div>
           ) : (
+            // ── Slideshow ────────────────────────────────────────────────────
             <div className="flex flex-col items-center">
-              <div className="relative w-full max-w-2xl aspect-[4/3] rounded-2xl overflow-hidden bg-secondary mb-4">
-                {photos[currentIndex]?.src ? (
-                  <img
-                    src={photos[currentIndex].src}
-                    alt={photos[currentIndex].alt}
-                    className="w-full h-full object-cover"
-                  />
+              {/* Main viewer
+                  - Video: w-full saja, TANPA overflow-hidden & TANPA h-* fixed
+                            → video mengembang ke rasio aslinya, tidak terpotong
+                  - Image: tetap aspect-[4/3] + overflow-hidden
+              */}
+              <div className="w-full max-w-2xl rounded-2xl bg-secondary mb-4">
+                {isVideo ? (
+                  // Wrapper video: TIDAK boleh ada overflow-hidden atau h-* fixed
+                  <div className="w-full rounded-2xl overflow-hidden">
+                    <VideoFull item={current} controls />
+                  </div>
                 ) : (
-                  <div className="w-full h-full flex flex-col items-center justify-center gap-3">
-                    <Camera size={48} className="text-primary/30" />
-                    <span className="text-sm text-muted-foreground font-sans">
-                      {photos[currentIndex]?.alt}
-                    </span>
+                  // Wrapper image: aspect ratio tetap
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                    <ImageCover item={current} />
+                    {/* Nav arrows hanya untuk gambar */}
+                    {photos.length > 1 && (
+                      <>
+                        <button
+                          onClick={handlePrev}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 backdrop-blur-sm flex items-center justify-center hover:bg-background/90 transition-colors"
+                          aria-label="Previous"
+                        >
+                          <ChevronLeft size={20} className="text-foreground" />
+                        </button>
+                        <button
+                          onClick={handleNext}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 backdrop-blur-sm flex items-center justify-center hover:bg-background/90 transition-colors"
+                          aria-label="Next"
+                        >
+                          <ChevronRight size={20} className="text-foreground" />
+                        </button>
+                      </>
+                    )}
                   </div>
                 )}
-
-                {/* Nav arrows */}
-                <button
-                  onClick={handlePrev}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 backdrop-blur-sm flex items-center justify-center hover:bg-background/90 transition-colors"
-                  aria-label="Previous photo"
-                >
-                  <ChevronLeft size={20} className="text-foreground" />
-                </button>
-                <button
-                  onClick={handleNext}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 backdrop-blur-sm flex items-center justify-center hover:bg-background/90 transition-colors"
-                  aria-label="Next photo"
-                >
-                  <ChevronRight size={20} className="text-foreground" />
-                </button>
               </div>
 
-              {/* Thumbnail strip */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 max-w-full">
+              {/* Nav buttons di bawah untuk video (karena video punya controls sendiri) */}
+              {isVideo && photos.length > 1 && (
+                <div className="flex justify-center gap-4 mb-4">
+                  <button
+                    onClick={handlePrev}
+                    className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary/10 transition-colors"
+                    aria-label="Previous"
+                  >
+                    <ChevronLeft size={20} className="text-foreground" />
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center hover:bg-primary/10 transition-colors"
+                    aria-label="Next"
+                  >
+                    <ChevronRight size={20} className="text-foreground" />
+                  </button>
+                </div>
+              )}
+
+              {/* Thumbnail strip: ukuran fixed, video & gambar di-crop */}
+              <div className="flex items-center gap-2 overflow-x-auto pb-2 px-1 w-full">
                 {photos.map((photo, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentIndex(idx)}
-                    className={`flex-shrink-0 w-14 h-14 md:w-16 md:h-16 rounded-xl overflow-hidden bg-secondary transition-all duration-300 ${
+                    className={`relative flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-secondary cursor-pointer ring-2 transition-all ${
                       idx === currentIndex
-                        ? "ring-2 ring-primary scale-110"
-                        : "opacity-60 hover:opacity-100"
+                        ? "ring-primary"
+                        : "ring-transparent hover:ring-primary/40"
                     }`}
+                    aria-label={`Go to item ${idx + 1}`}
                   >
-                    {photo.src ? (
-                      <img
-                        src={photo.src}
-                        alt={photo.alt}
-                        className="w-full h-full object-cover"
-                      />
+                    {photo.type === "video" ? (
+                      <VideoCover item={photo} />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <Camera size={14} className="text-primary/30" />
-                      </div>
+                      <ImageCover item={photo} />
                     )}
                   </button>
                 ))}
@@ -312,6 +419,7 @@ function GalleryModal({
   );
 }
 
+// ─── Main Section ─────────────────────────────────────────────────────────────
 export function ExperienceSection() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);

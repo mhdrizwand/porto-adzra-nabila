@@ -18,9 +18,9 @@ import {
 } from "lucide-react";
 
 const hardSkills = [
-  { name: "Microsoft Office", icon: Code },
-  { name: "Content Creation ", icon: Globe },
-  { name: "Analisis Data", icon: Code },
+  { name: "Content Creation", icon: Code },
+  { name: "Microsoft Office", icon: Globe },
+  { name: "Copywriting & Caption Writing", icon: Code },
   { name: "Customer Service", icon: Palette },
   { name: "Penulisan Ilmiah", icon: BookOpen },
   { name: "Kurikulum & RPP", icon: BookOpen },
@@ -80,13 +80,16 @@ export function AboutSection() {
           <div className="flex-1">
             <div className="glass-card rounded-3xl p-8 md:p-10 mb-8">
               <p className="text-base md:text-lg leading-relaxed text-foreground font-sans font-light mb-6">
-                Lulusan S1 Pendidikan Geografi. Memiliki pengalaman sebagai
-                Customer Service dan tenaga pendidik dengan kemampuan
-                administrasi, serta pelayanan publik yang baik. Terbiasa bekerja
-                secara teliti, dan sistematis. Mampu mendukung operasional dan
-                administrasi unit kerja dengan profesional, menjunjung tinggi
-                integritas, sertasiap berkontribusi dalam pelayanan yang
-                akuntabel dan berorientasi pada kepuasan konsumen.
+                Lulusan S1 Pendidikan Geografi dengan minat dan pengalaman kuat
+                di bidang Content Creation. Berpengalaman sebagai Customer
+                Service dan tenaga pendidik yang terbiasa mengelola informasi
+                secara kreatif, informatif, dan terstruktur untuk berbagai
+                kebutuhan audiens Memiliki kemampuan dalam produksi konten
+                edukatif dan informatif, pengelolaan media digital, serta
+                penyusunan materi. Terbiasa bekerja secara teliti, sistematis,
+                dan adaptif terhadap tren digital. Siap berkontribusi dalam
+                pengembangan konten yang menarik, komunikatif, dan berdampak
+                positif.
               </p>
 
               <div className="flex flex-wrap gap-4">
