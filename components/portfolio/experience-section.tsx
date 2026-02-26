@@ -47,14 +47,25 @@ const experiences = [
     photos: [{ src: "", alt: " Photo 1" }],
   },
   {
-    title: "Pengalaman Selama Perkuliahan ",
-    place: "Program Kampus Mengajar Angkatan 5, & Pelatihan Lainnya",
-    period: "3 Maret 2022 - 18 Desember 2022",
+    title: "Program Kampus Mengajar Angkatan 5",
+    place: "SD Negeri 8 Banda Aceh",
+    period: "Februari - Juni 2023",
     description:
-      "Selama masa perkuliahan, saya aktif mengikuti berbagai kegiatan pengembangan diri, seperti program Kampus Mengajar, pelatihan MC untuk meningkatkan kemampuan public speaking, serta penulisan karya tulis ilmiah. Selain itu, saya juga terlibat dalam KPM, KKL, dan PPL yang memberikan pengalaman langsung di lapangan, memperkuat kompetensi akademik, profesional, dan sosial saya.",
+      "Saya mengikuti Program Kampus Mengajar Angkatan 5 Tahun 2023 dengan kegiatan pembekalan dan penugasan di sekolah, meliputi observasi, pelaksanaan AKM, pembelajaran literasi dan numerasi, adaptasi teknologi, serta administrasi sekolah. Program ini memberikan pengalaman langsung dalam mendukung proses pembelajaran dan meningkatkan kompetensi pedagogis serta manajerial saya di bidang pendidikan.",
     photos: [
-      { src: "KM 4.png", alt: " Photo 1" },
-      { src: "KM 1.png", alt: " Photo 1" },
+      { src: "KM5 1.png", alt: " Photo 1" },
+      { src: "KM5 2.png", alt: " Photo 1" },
+      { src: "KM5 3.png", alt: " Photo 1" },
+      { src: "KM5 4.png", alt: " Photo 1" },
+    ],
+  },
+  {
+    title: "Pelatihan Master Of Ceremony",
+    place: "Dinas Pendidikan Dayah Aceh",
+    period: "Februari 2022",
+    description:
+      "Dalam kegiatan pelatihan Master of Ceremony (MC), saya mempelajari teknik public speaking, pengolahan vokal, penguasaan panggung, serta penyusunan susunan acara secara profesional. Selain itu, dalam pelatihan penulisan karya tulis ilmiah, saya mempelajari sistematika penulisan ilmiah, teknik penyusunan paragraf akademik, penggunaan bahasa sesuai kaidah, serta pengelolaan dan sitasi referensi secara tepat, sehingga meningkatkan kemampuan komunikasi dan literasi akademik saya.",
+    photos: [
       { src: "KM 2.png", alt: " Photo 1" },
       { src: "KM 3.png", alt: " Photo 1" },
     ],

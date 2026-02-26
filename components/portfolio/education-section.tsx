@@ -60,7 +60,7 @@ export function EducationSection() {
                     size={48}
                     className="mx-auto mb-2 text-primary/40"
                   />
-                  <img src="profil 3.jpeg" alt="" />
+                  <img src="KM 4.png" alt="" />
                 </div>
               </div>
             </div>
