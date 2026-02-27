@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Playfair_Display, Poppins } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
+
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   title: "Adzra Nabila | Portfolio",
   description:
     "Portfolio of Adzra Nabila - Fresh Graduate in Pendidikan Geografi",
-  generator: "v0.app",
   icons: {
     icon: [
       {
@@ -57,7 +56,6 @@ export default function RootLayout({
         className={`${playfair.variable} ${poppins.variable} font-sans antialiased`}
       >
         {children}
-        <Analytics />
       </body>
     </html>
   );

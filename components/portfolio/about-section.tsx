@@ -68,10 +68,14 @@ export function AboutSection() {
           <div className="flex-shrink-0 mx-auto lg:mx-0">
             <div className="photo-frame-glass w-[260px] h-[320px] md:w-[300px] md:h-[380px]">
               <div className="w-full h-full rounded-2xl overflow-hidden bg-secondary flex items-center justify-center">
-                <div className="text-center text-muted-foreground font-sans">
-                  <User size={48} className="mx-auto mb-2 text-primary/40" />
-                  <img src="profil 2.jpeg" />
-                </div>
+                <img
+                  src="profil-2.jpeg"
+                  alt="Foto Profil"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
               </div>
             </div>
           </div>
